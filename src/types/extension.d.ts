@@ -11,9 +11,6 @@ declare module '@tiptap/core' {
         alt?:string;
         caption?:string;
       }) => ReturnType
-    },
-    customTable: {
-      insertTable: ({ rows: number, cols: number, withHeaderRow: boolean }) => ReturnType
     }
   }
 }

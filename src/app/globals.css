@@ -483,54 +483,62 @@ figure[data-type="imageBox"]:hover {
   transition: border 0.2s ease;
 }
 
-table.beauty-table {
+
+.tableWrapper table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #d1d5db; /* gray-300 */
   border-radius: 8px;
   overflow: hidden;
   font-size: 0.875rem;
+  margin: 1rem 0;
+
+  @apply border border-gray-200 dark:border-gray-700;
 }
 
-.beauty-table thead {
+.tableWrapper table thead {
   background-color: #f3f4f6; /* gray-100 */
   text-align: left;
 }
 
-.beauty-table th,
-.beauty-table td {
+.tableWrapper table th,
+.tableWrapper table td {
   padding: 12px 16px;
   border-bottom: 1px solid #e5e7eb; /* gray-200 */
 }
 
-.beauty-table tr:hover td {
+.tableWrapper table tr:hover td {
   background-color: #f9fafb;
 }
 
-.beauty-table th {
+.tableWrapper table th {
   font-weight: 600;
   color: #374151; /* gray-700 */
 }
 
-.dark .beauty-table {
+.tableWrapper tr {
+  @apply divide-x divide-gray-200 dark:divide-gray-700;
+
+}
+.dark .tableWrapper table {
   border-color: white;
 }
 
-.dark .beauty-table thead {
+
+.dark .tableWrapper table thead {
   background-color: #1f2937;
 }
 
-.dark .beauty-table th,
-.dark .beauty-table td {
+.dark .tableWrapper table th,
+.dark .tableWrapper table td {
   border-color: #4b5563;
   color: #d1d5db;
 }
 
-.dark .beauty-table tr:hover td {
+.dark .tableWrapper table tr:hover td {
   background-color: #111827;
 }
 
-.dark .beauty-table th {
+.dark .tableWrapper table th {
   color: #d1d5db;
   @apply font-medium bg-muted/50 dark:bg-white/20;
 

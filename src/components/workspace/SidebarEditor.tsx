@@ -31,6 +31,7 @@ function renderView(block: typeCurrentBlock, editor: Editor | null, post: Post) 
 
     const type = block?.type?.name
     if (!type) return <div className="text-xs text-gray-500">No block selected</div>
+
     switch (type) {
         case "details":
             return (
@@ -209,6 +210,7 @@ function renderView(block: typeCurrentBlock, editor: Editor | null, post: Post) 
                     </div>
                 </div>
             )
+
         default:
             return (
                 <div className="text-xs text-gray-500">
@@ -370,7 +372,7 @@ export default function SidebarEditor({ activeBlock, editor, post, activeTab, se
                     onClick={() => {
                         setActiveTab("block")
                     }}
-                    // style={!currentBlock ? { opacity: 0.5, cursor: "not-allowed" } : {}}
+                // style={!currentBlock ? { opacity: 0.5, cursor: "not-allowed" } : {}}
                 >
                     Block
                 </button>

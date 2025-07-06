@@ -1,8 +1,9 @@
 // src/Tiptap.tsx
-import { EditorContent, FloatingMenu, BubbleMenu, Editor } from '@tiptap/react'
+import { EditorContent, FloatingMenu, Editor } from '@tiptap/react'
 
 import { Toolbar } from './Toolbar'
 import ImageFloatingMenu from './floatingmenu/ImageFloatingMenu'
+import TableFloatingMenu from './floatingmenu/TableFloatingMenu'
 
 interface TipTapProps {
     editor: Editor
@@ -43,7 +44,7 @@ const Tiptap = ({ editor, handleTitle }: TipTapProps) => {
                 </button>
             </FloatingMenu>
             <ImageFloatingMenu editor={editor} />
-            <BubbleMenu editor={editor}>This is the bubble menu</BubbleMenu>
+            <TableFloatingMenu editor={editor} />
         </div>
     )
 }
