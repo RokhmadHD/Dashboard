@@ -484,61 +484,59 @@ figure[data-type="imageBox"]:hover {
 }
 
 
-.tableWrapper table {
-  width: 100%;
+.tableWrapper {
   border-collapse: collapse;
   border-radius: 8px;
   overflow: hidden;
   font-size: 0.875rem;
   margin: 1rem 0;
 
-  @apply border border-gray-200 dark:border-gray-700;
+
+  @apply min-w-sm w-full max-w-5xl mx-auto h-full max-h-96 overflow-auto  border-gray-200/50 dark:border-gray-700/50;
 }
 
-.tableWrapper table thead {
+.tableWrapper thead {
   background-color: #f3f4f6; /* gray-100 */
   text-align: left;
 }
 
-.tableWrapper table th,
-.tableWrapper table td {
+.tableWrapper th,
+.tableWrapper td {
   padding: 12px 16px;
-  border-bottom: 1px solid #e5e7eb; /* gray-200 */
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.tableWrapper table tr:hover td {
+.tableWrapper tr:hover td {
   background-color: #f9fafb;
 }
 
-.tableWrapper table th {
+.tableWrapper th {
   font-weight: 600;
   color: #374151; /* gray-700 */
 }
 
 .tableWrapper tr {
-  @apply divide-x divide-gray-200 dark:divide-gray-700;
-
-}
-.dark .tableWrapper table {
-  border-color: white;
+  @apply divide-x divide-gray-200/20 dark:divide-gray-500/20
 }
 
-
-.dark .tableWrapper table thead {
+.tableWrapper .node-tableRow {
+  @apply w-full
+}
+.dark .tableWrapper thead {
   background-color: #1f2937;
 }
 
-.dark .tableWrapper table th,
-.dark .tableWrapper table td {
+.dark .tableWrapper th,
+.dark .tableWrapper td {
   border-color: #4b5563;
   color: #d1d5db;
 }
 
-.dark .tableWrapper table tr:hover td {
+.dark .tableWrapper tr:hover td {
   background-color: #111827;
 }
 
-.dark .tableWrapper table th {
+.dark .tableWrapper th {
   color: #d1d5db;
   @apply font-medium bg-muted/50 dark:bg-white/20;
 

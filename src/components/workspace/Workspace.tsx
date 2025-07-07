@@ -14,10 +14,8 @@ import Tiptap from "@/components/workspace/TipTap"
 import SidebarEditor from "@/components/workspace/SidebarEditor"
 import { AlertBox } from "@/components/workspace/extension/AlertBox"
 import { ImageBox } from "./extension/ImageBox"
-import Table from '@tiptap/extension-table'
-import TableCell from '@tiptap/extension-table-cell'
-import TableHeader from '@tiptap/extension-table-header'
-import TableRow from '@tiptap/extension-table-row'
+// import TableRow from '@tiptap/extension-table-row'
+import CustomTable, {CustomTableCell, CustomTableHeader, CustomTableRow} from '@/components/workspace/extension/Table'
 
 export type Post = {
     title: string
@@ -41,28 +39,6 @@ const initial_post: Post = {
     excerpt: '',
     slug: ""
 }
-
-
-const CustomTable = Table.extend({
-    addAttributes() {
-        return {
-            ...this.parent?.(),
-            class: {
-                default: null,
-                // Customize the HTML parsing
-                parseHTML: element => element.getAttribute('class'),
-                // … and customize the HTML rendering
-                renderHTML: attributes => {
-                    if (attributes.class) {
-                        return {
-                            'class': attributes.class
-                        }
-                    }
-                },
-            },
-        }
-    },
-});
 
 function Workspace() {
     const [post, setPost] = useState<Post>(initial_post)
@@ -90,9 +66,8 @@ function Workspace() {
                     class: 'beauty-table',
                 },
             }),
-            TableCell,
-            TableRow,
-            TableHeader,
+            CustomTableRow,
+            CustomTableHeader,
             FloatingMenu.configure({
                 shouldShow: ({ editor, state }) => {
                     const hasSelection = state.selection.from !== state.selection.to
@@ -101,6 +76,7 @@ function Workspace() {
                 }
 
             }),
+            CustomTableCell
             // BubbleMenu.configure({
             //     shouldShow: ({ editor}) => {
             //         // only show the bubble menu for images and links

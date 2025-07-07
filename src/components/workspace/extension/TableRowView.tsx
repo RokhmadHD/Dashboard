@@ -1,10 +1,12 @@
+import { NodeViewWrapper, NodeViewContent } from '@tiptap/react'
 import React from 'react'
 
 function TableRowView() {
   return (
-    <div>
-      
-    </div>
+    <NodeViewWrapper >
+      <NodeViewContent className="w-full" />
+    
+    </NodeViewWrapper>
   )
 }
 
