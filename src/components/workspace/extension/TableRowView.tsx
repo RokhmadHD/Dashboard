@@ -5,7 +5,6 @@ function TableRowView() {
   return (
     <NodeViewWrapper >
       <NodeViewContent className="w-full" />
-    
     </NodeViewWrapper>
   )
 }
