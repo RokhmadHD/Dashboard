@@ -20,7 +20,7 @@ export const decrypt = (ciphertext: string) => {
   }
 }
 
-export const getDB = async () => {
+const getDB = async () => {
   return openDB(DB_NAME, 1, {
     upgrade(db) {
       if (!db.objectStoreNames.contains(STORE_NAME)) {

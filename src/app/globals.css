@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -297,99 +296,7 @@
 }
 
 /* TipTap Editor Styling */
-.tiptap {
-  @apply w-full p-4 text-gray-800 outline-none  dark:text-gray-100;
-  font-family: var(--font-outfit, 'Outfit', sans-serif);
-  font-size: 1rem;
-  line-height: 1.7;
-}
 
-.tiptap p {
-  margin: 0 0 .1em 0;
-}
-
-.tiptap h1,
-.tiptap h2,
-.tiptap h3,
-.tiptap h4,
-.tiptap h5,
-.tiptap h6 {
-  @apply font-semibold text-gray-900 dark:text-white mb-2 mt-4;
-}
-
-.tiptap h1 { font-size: 2.25rem; }
-.tiptap h2 { font-size: 1.75rem; }
-.tiptap h3 { font-size: 1.5rem; }
-.tiptap h4 { font-size: 1.25rem; }
-.tiptap h5 { font-size: 1.125rem; }
-.tiptap h6 { font-size: 1rem; }
-
-.tiptap ul,
-.tiptap ol {
-  @apply pl-6 mb-2;
-}
-
-.tiptap ul {
-  list-style-type: disc;
-}
-
-.tiptap ol {
-  list-style-type: decimal;
-}
-
-.tiptap li {
-  margin-bottom: 0.25em;
-}
-
-.tiptap blockquote {
-  @apply border-l-4 border-brand-500 bg-brand-50/50 dark:bg-brand-500/10 px-4 py-2 my-4 text-gray-600 dark:text-gray-300 italic rounded-r-lg;
-}
-
-.tiptap pre {
-  @apply bg-gray-900 text-white rounded-lg p-4 overflow-x-auto my-4 text-sm;
-  font-family: 'Fira Mono', 'Consolas', 'Monaco', monospace;
-}
-
-.tiptap code {
-  @apply bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5 text-sm ;
-}
-
-.tiptap pre code {
-  @apply bg-transparent p-0;
-}
-
-.tiptap a {
-  @apply text-brand-500 underline hover:text-brand-600 transition-colors;
-  word-break: break-all;
-}
-
-.tiptap hr {
-  @apply border-t border-gray-200 dark:border-gray-700 my-6;
-}
-
-.tiptap img {
-  @apply max-w-full rounded-lg my-2;
-}
-
-.tiptap .is-active {
-  @apply bg-brand-100 dark:bg-brand-500/20;
-}
-
-.tiptap .selected {
-  @apply ring-2 ring-brand-500;
-}
-
-.tiptap .ProseMirror-gapcursor {
-  display: inline-block;
-  width: 1px;
-  background: var(--color-brand-500, #465fff);
-  height: 1em;
-  vertical-align: text-top;
-}
-
-.tiptap .ProseMirror-focused {
-  @apply outline-none;
-}
 
 /* Beautiful custom scrollbar */
 .beautiful-scrollbar {
@@ -485,66 +392,8 @@ figure[data-type="imageBox"]:hover {
 }
 
 
-.tableWrapper {
-  border-collapse: collapse;
-  border-radius: 8px;
-  overflow: hidden;
-  font-size: 0.875rem;
-  margin: 1rem 0;
-  @apply min-w-sm w-full max-w-5xl mx-auto h-full max-h-96 overflow-auto border  border-gray-200/50 dark:border-gray-700/50;
-}
-
-.tableWrapper thead {
-  background-color: #f3f4f6; /* gray-100 */
-  text-align: left;
-}
-
-.tableWrapper th,
-.tableWrapper td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.tableWrapper tr:hover td {
-  background-color: #f9fafb;
-}
-
-.tableWrapper .node-customTableHeader {
-@apply border-x border-gray-200/50 dark:border-gray-500/50
-}
-.tableWrapper .node-customTableCell {
-  @apply border-r border-gray-200/50 dark:border-gray-500/50
-}
-.tableWrapper th {
-  font-weight: 600;
-  color: #374151; /* gray-700 */
-}
-
-.tableWrapper tr {
-  @apply divide-x divide-gray-200 dark:divide-gray-500
-}
-
-.tableWrapper .node-tableRow {
-  @apply w-full
-}
-.dark .tableWrapper thead {
-  background-color: #1f2937;
-}
-
-.dark .tableWrapper th,
-.dark .tableWrapper td {
-  border-color: #4b5563;
-  color: #d1d5db;
-}
-
-.dark .tableWrapper tr:hover td {
-  background-color: #111827;
-}
-
-.dark .tableWrapper th {
-  color: #d1d5db;
-  @apply font-medium bg-muted/50 dark:bg-white/20;
-
+.simple-editor-content textarea {
+  @apply border-b w-full max-w-md md:max-w-[60rem] mx-auto;
 }
 
 /* end of workspace */

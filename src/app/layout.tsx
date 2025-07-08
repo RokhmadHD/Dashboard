@@ -1,5 +1,7 @@
 import { Outfit } from 'next/font/google';
 import './globals.css';
+import '@/styles/_keyframe-animations.scss'
+import '@/styles/_variables.scss'
 
 import { SidebarProvider } from '@/context/SidebarContext';
 import { ThemeProvider } from '@/context/ThemeContext';

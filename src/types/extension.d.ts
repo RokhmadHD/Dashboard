@@ -5,7 +5,7 @@ declare module '@tiptap/core' {
     alertBox: {
       insertAlertBox: (variant: string) => ReturnType
     },
-    imageBox: {
+    custom: {
       insertImageBox: (options: {
         src:string;
         alt?:string;
