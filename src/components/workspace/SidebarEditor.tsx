@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react"
 // import { PencilLine } from 'lucide-react'
 // import { SubString } from "@/lib/utils"
 import { ReactNode } from "react"
+import ChatSidebar from "./Ai/ChatSidebar"
 
 function DetailItem({
     label,
@@ -67,150 +68,8 @@ function renderView(block: typeCurrentBlock, editor: Editor | null, post: Post) 
                     <DisclosurePanel title="Tags" open />
                 </div>
             )
-
-        case "paragraph":
-            return (
-                <div className="space-y-4">
-                    {/* Heading */}
-                    <h4 className="text-xs font-semibold">Paragraph Settings</h4>
-
-                    {/* Text Alignment */}
-                    <div>
-                        <label className="text-xs font-medium block mb-1">Alignment</label>
-                        <div className="flex gap-2">
-                            {["left", "center", "right"].map((align) => (
-                                <button
-                                    key={align}
-                                    onClick={() => editor.chain().focus().setTextAlign(align).run()}
-                                    className="border px-2 py-1 rounded text-xs hover:bg-gray-100 capitalize"
-                                >
-                                    {align}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Typography */}
-                    <div>
-                        <label className="text-xs font-medium block mb-1">Typography</label>
-                        <div className="flex gap-2">
-                            <button
-                                onClick={() => editor.chain().focus().toggleBold().run()}
-                                className="border px-2 py-1 rounded text-xs hover:bg-gray-100"
-                            >
-                                Bold
-                            </button>
-                            <button
-                                onClick={() => editor.chain().focus().toggleItalic().run()}
-                                className="border px-2 py-1 rounded text-xs hover:bg-gray-100"
-                            >
-                                Italic
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* List Options */}
-                    <div>
-                        <label className="text-xs font-medium block mb-1">List</label>
-                        <div className="flex gap-2">
-                            <button
-                                onClick={() => editor.chain().focus().toggleBulletList().run()}
-                                className="border px-2 py-1 rounded text-xs hover:bg-gray-100"
-                            >
-                                Bullet
-                            </button>
-                            <button
-                                onClick={() => editor.chain().focus().toggleOrderedList().run()}
-                                className="border px-2 py-1 rounded text-xs hover:bg-gray-100"
-                            >
-                                Numbered
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Color Picker */}
-                    <div>
-                        <h4 className="text-xs font-semibold mb-1">Color</h4>
-                        <div className="space-y-2 border p-2 px-4">
-                            <ColorField editor={editor} label="Text" />
-                            <ColorField editor={editor} label="Background" />
-                        </div>
-                    </div>
-
-                    {/* Disclosure Sections */}
-                    <DisclosurePanel title="Dimensions" />
-                    <DisclosurePanel title="Advanced" open />
-                </div>
-            )
-
-
-        case "heading":
-            return (
-                <div className="space-y-2">
-                    <h4 className="text-xs font-semibold">Heading Settings</h4>
-                    <div className="flex gap-2">
-                        {[1, 2, 3].map((level) => (
-                            <button
-                                key={level}
-                                onClick={() => editor.commands.toggleHeading({ level: level as 1 | 2 | 3 })}
-                                className="border px-2 py-1 rounded text-xs hover:bg-gray-100"
-                            >
-                                H{level}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            )
-
-        case "codeBlock":
-            return (
-                <div className="space-y-2">
-                    <h4 className="text-xs font-semibold">Code Block</h4>
-                    <button
-                        onClick={() => editor.commands.toggleCodeBlock()}
-                        className="border px-2 py-1 rounded text-xs hover:bg-gray-100"
-                    >
-                        Toggle Code Block
-                    </button>
-                </div>
-            )
-        case 'imageBox':
-            return (
-                <div className="space-y-3">
-                    <h4 className="text-sm font-semibold">Edit Image</h4>
-
-                    <div className="flex flex-col space-y-2 text-sm">
-                        <label className="font-medium">Image URL</label>
-                        <input
-                            value={editor.getAttributes('imageBox')?.src || ''}
-                            onChange={(e) =>
-                                editor
-                                    .chain()
-                                    .focus()
-                                    .updateAttributes('imageBox', { src: e.target.value })
-                                    .run()
-                            }
-                            placeholder="https://..."
-                        />
-                    </div>
-
-                    <div className="flex flex-col space-y-2 text-sm">
-                        <label className="font-medium">Alt Text</label>
-                        <input
-                            value={editor.getAttributes('imageBox')?.caption || ''}
-                            onChange={(e) =>
-                                editor
-                                    .chain()
-                                    .focus()
-                                    .updateAttributes('imageBox', { caption: e.target.value })
-                                    .run()
-                            }
-                            placeholder="Deskripsi gambar"
-                        />
-                    </div>
-                </div>
-            )
-
+        case 'ai':
+            return <ChatSidebar />
         default:
             return (
                 <div className="text-xs text-gray-500">
@@ -237,6 +96,7 @@ const TAILWIND_COLORS = [
     { name: "Pink", value: "#ec4899" },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ColorField({ label, editor }: ColorFieldProps) {
     const currectEditor = useMemo(() => editor, [editor])
 
@@ -346,8 +206,8 @@ export type Post = {
 
 interface SidebarEditorProps {
     activeBlock: typeCurrentBlock
-    activeTab: "post" | "block";
-    setActiveTab: React.Dispatch<React.SetStateAction<"post" | "block">>;
+    activeTab: "post" | "ai";
+    setActiveTab: React.Dispatch<React.SetStateAction<"post" | "ai">>;
     editor: Editor,
     post: Post
 }
@@ -356,7 +216,7 @@ export default function SidebarEditor({ activeBlock, editor, post, activeTab, se
     // const [activeTab, setActiveTab] = useState<"post" | "block">("post")
 
     return (
-        <aside className="w-72 border-l shadow-md  flex flex-col text-sm ">
+        <aside className="w-96 border-l shadow-md  flex flex-col text-sm ">
             {/* Tabs */}
             <div className="flex border-b pt-2">
                 <button
@@ -367,20 +227,20 @@ export default function SidebarEditor({ activeBlock, editor, post, activeTab, se
                     Post
                 </button>
                 <button
-                    className={`flex-1 p-2 text-center font-medium ${activeTab === "block" ? "border-b-2 border-gray-700 dark:border-white" : "border-none"
+                    className={`flex-1 p-2 text-center font-medium ${activeTab === "ai" ? "border-b-2 border-gray-700 dark:border-white" : "border-none"
                         }`}
                     onClick={() => {
-                        setActiveTab("block")
+                        setActiveTab("ai")
                     }}
                 // style={!currentBlock ? { opacity: 0.5, cursor: "not-allowed" } : {}}
                 >
-                    Block
+                    AI Chat
                 </button>
             </div>
 
             {/* Panel Content */}
-            <div className="p-4 space-y-6 overflow-y-auto flex-1">
-                {renderView(activeBlock, editor, post)}
+            <div className="space-y-6 overflow-y-auto flex-1">
+              {renderView(activeBlock, editor, post)}
             </div>
         </aside>
     )

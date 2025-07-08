@@ -332,6 +332,7 @@
 .tiptap ul {
   list-style-type: disc;
 }
+
 .tiptap ol {
   list-style-type: decimal;
 }
@@ -490,9 +491,7 @@ figure[data-type="imageBox"]:hover {
   overflow: hidden;
   font-size: 0.875rem;
   margin: 1rem 0;
-
-
-  @apply min-w-sm w-full max-w-5xl mx-auto h-full max-h-96 overflow-auto  border-gray-200/50 dark:border-gray-700/50;
+  @apply min-w-sm w-full max-w-5xl mx-auto h-full max-h-96 overflow-auto border  border-gray-200/50 dark:border-gray-700/50;
 }
 
 .tableWrapper thead {
@@ -510,13 +509,19 @@ figure[data-type="imageBox"]:hover {
   background-color: #f9fafb;
 }
 
+.tableWrapper .node-customTableHeader {
+@apply border-x border-gray-200/50 dark:border-gray-500/50
+}
+.tableWrapper .node-customTableCell {
+  @apply border-r border-gray-200/50 dark:border-gray-500/50
+}
 .tableWrapper th {
   font-weight: 600;
   color: #374151; /* gray-700 */
 }
 
 .tableWrapper tr {
-  @apply divide-x divide-gray-200/20 dark:divide-gray-500/20
+  @apply divide-x divide-gray-200 dark:divide-gray-500
 }
 
 .tableWrapper .node-tableRow {

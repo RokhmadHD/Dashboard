@@ -4,7 +4,7 @@ import React from 'react'
 function TableRowView() {
   return (
     <NodeViewWrapper >
-      <NodeViewContent className="w-full" />
+      <NodeViewContent className="" />
     </NodeViewWrapper>
   )
 }

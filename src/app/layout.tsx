@@ -4,6 +4,7 @@ import './globals.css';
 import { SidebarProvider } from '@/context/SidebarContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import NextTopLoader from 'nextjs-toploader';
+import { Toaster } from 'sonner';
 const outfit = Outfit({
   subsets: ["latin"],
 });
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.className} dark:bg-gray-900`}>
         <NextTopLoader showSpinner={false} />
+        <Toaster/>
         <ThemeProvider>
           <SidebarProvider>{children}</SidebarProvider>
         </ThemeProvider>
