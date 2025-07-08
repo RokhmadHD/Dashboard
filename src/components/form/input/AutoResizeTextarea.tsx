@@ -3,11 +3,13 @@ import React, { useRef, useEffect } from "react";
 type Props = {
   value: string;
   placeholder?: string;
+  isTitle?:boolean;
 }  & React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export default function AutoResizeTextarea({
   value,
   placeholder,
+  isTitle,
   ...props
 }: Props) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -24,8 +26,7 @@ export default function AutoResizeTextarea({
     ref={textareaRef}
     value={value}
     placeholder={placeholder}
-    className="w-full py-2 focus:outline-none resize-none overflow-hidden bg-transparent text-zinc-900 dark:text-white"
-    style={{ fontSize: "1.5rem", fontWeight: 600 }}
+    className={`w-full py-2 focus:outline-none resize-none overflow-hidden bg-transparent text-zinc-900 dark:text-white ${isTitle ? 'text-3xl': 'text-md'}`}
     rows={1}
     {...props}
     />

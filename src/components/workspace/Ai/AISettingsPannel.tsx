@@ -7,7 +7,7 @@ import { DropdownItem } from "@/components/ui/dropdown/DropdownItem";
 
 const models = [
   "Gemini 2.5 Pro",
-  "Gemini 2.5 Flash-Lite Preview",
+  "gemini-2.5-flash-lite-preview-06-17",
   "Gemini 2.5 Flash",
   "Gemini 2.0 Flash",
   "Gemini 2.0 Flash-Lite",

@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import showdown from 'showdown';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -15,4 +16,10 @@ export function SubString({text, max = 50}: SubString) {
     return `${text.substring(0,max)}...`
   }
   return text
+}
+
+const markdownConverter = new showdown.Converter();
+export function convertMarkdownToHtml(markdown: string): string {
+  // showdown akan mengubah **text** menjadi <strong>text</strong>, dll.
+  return markdownConverter.makeHtml(markdown);
 }

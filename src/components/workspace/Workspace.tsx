@@ -355,6 +355,7 @@ function Workspace() {
                 <PanelRight />
               </button>
               <AutoResizeTextarea
+                isTitle
                 value={post.title}
                 onChange={handleTitle}
                 placeholder="Enter post title"

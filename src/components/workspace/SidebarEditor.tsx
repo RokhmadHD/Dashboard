@@ -27,6 +27,7 @@ function DetailItem({
   );
 }
 
+
 function renderView(
   block: typeCurrentBlock,
   editor: Editor | null,
